@@ -1,0 +1,10 @@
+Flask
+scikit-learn
+pandas
+langdetect
+PyPDF2
+python-docx
+fuzzywuzzy
+tqdm
+nltk
+spellchecker

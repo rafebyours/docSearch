@@ -1,0 +1,107 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Favorite Documents</title> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"> 
+    <script src="https://cdn.tailwindcss.com"></script> 
+</head> 
+<body class="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen"> 
+    <!-- Navigation --> 
+    <nav class="bg-white shadow-lg"> 
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> 
+            <div class="flex justify-between h-16 items-center"> 
+                <a href="/" class="flex items-center space-x-2"> 
+                    <i class="fas fa-arrow-left text-gray-600 hover:text-blue-600 transition-colors"></i> 
+                    <span class="text-xl font-semibold text-gray-800">Back to Search</span> 
+                </a> 
+                <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> 
+                    Favorite Documents 
+                </h1> 
+            </div> 
+        </div> 
+    </nav> 
+
+    <!-- Main Content --> 
+    <main class="max-w-5xl mx-auto px-4 py-8"> 
+        <!-- Flash Messages --> 
+        {% with messages = get_flashed_messages(with_categories=true) %} 
+            {% if messages %} 
+                {% for category, message in messages %} 
+                    <div class="mb-4 rounded-lg p-4 {% if category == 'success' %}bg-green-100 text-green-700 border border-green-200{% elif category == 'warning' %}bg-yellow-100 text-yellow-700 border border-yellow-200{% else %}bg-red-100 text-red-700 border border-red-200{% endif %}"> 
+                        {{ message }} 
+                    </div> 
+                {% endfor %} 
+            {% endif %} 
+        {% endwith %} 
+
+        <!-- Documents Container --> 
+        <div class="bg-white rounded-2xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl"> 
+            {% if favorite_documents %} 
+                <div class="space-y-4"> 
+                    {% for document in favorite_documents %} 
+                        <div class="group bg-white border rounded-xl p-4 hover:shadow-md transition-all duration-300 hover:-translate-y-1"> 
+                            <div class="flex justify-between items-center"> 
+                                <div class="flex items-center space-x-4"> 
+                                    <!-- Document Type Icon (you can customize based on file type) --> 
+                                    <div class="p-2 bg-blue-100 rounded-lg text-blue-600"> 
+                                        <i class="fas fa-file-alt text-lg"></i> 
+                                    </div> 
+                                    <!-- Document Name --> 
+                                    <h3 class="text-lg font-medium text-gray-800">{{ document }}</h3> 
+                                </div> 
+                                
+                                <!-- Action Buttons --> 
+                                <div class="flex items-center space-x-4"> 
+                                    <!-- Preview Button --> 
+                                    <a href="/preview/{{ document }}"  
+                                        class="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors" 
+                                        title="Preview Document"> 
+                                        <i class="fas fa-eye text-lg"></i> 
+                                    </a> 
+                                    
+                                    <!-- Download Button --> 
+                                    <a href="/download/{{ document }}"  
+                                        class="p-2 text-gray-600 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors" 
+                                        title="Download Document"> 
+                                        <i class="fas fa-download text-lg"></i> 
+                                    </a> 
+                                    
+                                    <!-- Unfavorite Button --> 
+                                    <form action="{{ url_for('unfavorite', filename=document) }}" method="post" style="display: inline;"> 
+                                        <button type="submit" class="p-2 text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="Remove from Favorites"> 
+                                            <i class="fas fa-heart-broken text-lg"></i> 
+                                        </button> 
+                                    </form> 
+                                </div> 
+                            </div> 
+                        </div> 
+                    {% endfor %} 
+                </div> 
+            {% else %} 
+                <!-- Empty State --> 
+                <div class="text-center py-12"> 
+                    <div class="bg-gray-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4"> 
+                        <i class="fas fa-heart text-3xl text-gray-400"></i> 
+                    </div> 
+                    <h3 class="text-xl font-medium text-gray-700 mb-2">No Favorite Documents Yet</h3> 
+                    <p class="text-gray-500">Start adding documents to your favorites to see them here.</p> 
+                    <a href="/" class="inline-block mt-6 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"> 
+                        Browse Documents 
+                    </a> 
+                </div> 
+            {% endif %} 
+        </div> 
+    </main> 
+
+    <!-- Footer --> 
+    <footer class="mt-auto py-6"> 
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> 
+            <p class="text-center text-gray-500"> 
+                
+            </p> 
+        </div> 
+    </footer> 
+</body> 
+</html>

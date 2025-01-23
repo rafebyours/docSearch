@@ -1,0 +1,11 @@
+﻿No,Nama,Usia,Jenis Kelamin,Tanggal Pemeriksaan,Tinggi Badan (cm),Berat Badan (kg),Tekanan Darah,Detak Jantung,Suhu Tubuh (°C),Riwayat Penyakit,Keterangan
+1,Wawan Gunawan,30,Laki-laki,23 Januari 2025,175,70,120/80,72 bpm,"36,7",Tidak ada,Kondisi stabil
+2,Junaidi,45,Perempuan,23 Januari 2025,160,65,130/85,80 bpm,"37,0",Hipertensi ringan,Perlu pengawasan
+3,Maria Handayani,27,Perempuan,23 Januari 2025,165,58,110/70,75 bpm,"36,8",Tidak ada,Kondisi stabil
+4,Ahmad Zulkarnain,50,Laki-laki,23 Januari 2025,180,90,140/90,85 bpm,"37,2",Diabetes tipe 2,Perlu pengawasan
+5,Agung Prasetyo,35,Laki-laki,23 Januari 2025,170,80,125/85,78 bpm,"36,9",Kolesterol tinggi,Perlu kontrol rutin
+6,Siti Nurjanah,28,Perempuan,23 Januari 2025,158,55,110/75,70 bpm,"36,6",Tidak ada,Kondisi stabil
+7,Budi Santoso,60,Laki-laki,23 Januari 2025,165,78,145/95,80 bpm,"37,1","Hipertensi, Stroke ringan",Perlu pengawasan medis
+8,Dian Wulandari,40,Perempuan,23 Januari 2025,162,63,125/80,72 bpm,"36,8",Tidak ada,Kondisi stabil
+9,Wawan Setiawan,50,Laki-laki,23 Januari 2025,178,85,130/85,76 bpm,"37,0",Tidak ada,"Kondisi stabil, perlu olahraga"
+10,Rina Suryani,32,Perempuan,23 Januari 2025,155,52,115/75,74 bpm,"36,5",Tidak ada,"Kondisi stabil, kontrol diet"
